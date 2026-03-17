@@ -11,6 +11,10 @@ fi
 
 pushd "$EMSDK_DIR" > /dev/null
 
+# ZIP解凍直後に実行権限を強制的に付与する
+chmod +x ./emsdk
+chmod +x ./emsdk_env.sh
+
 # 初回や移動後など、設定ファイルがない場合はインストール/アクティベート
 if [ ! -f ".emscripten" ]; then
   ./emsdk install 3.1.20
