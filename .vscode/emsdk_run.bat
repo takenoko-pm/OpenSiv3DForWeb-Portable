@@ -2,9 +2,15 @@
 :: このスクリプトの場所から emsdk フォルダへのパスを特定
 set "EMSDK_DIR=%~dp0..\emsdk"
 
+:: emsdkサブモジュールのクローン
+dir /b /s /a "%EMSDK_DIR%" | findstr .>nul || (
+  call git submodule update --init
+)
+
 pushd "%EMSDK_DIR%"
-:: 初回や移動後など、設定ファイルがない場合は自動でアクティベート
+:: 初回や移動後など、設定ファイルがない場合は自動でインストール/アクティベート
 if not exist .emscripten (
+    call emsdk install 3.1.20
     call emsdk activate 3.1.20
 )
 :: 環境変数を現在のプロセスに読み込む
