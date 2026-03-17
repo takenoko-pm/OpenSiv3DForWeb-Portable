@@ -6,8 +6,9 @@
         {
             "type": "shell",
             "label": "Compile Debug",
-            "command": "emcc",
+            "command": ".vscode/emsdk_run.bat",
             "args": [
+                "emcc",
                 { "value": "@.vscode/Compile.rsp", "quoting": "strong" },
                 { "value": "@.vscode/Compile.Debug.rsp", "quoting": "strong" },
                 { "value": "@.vscode/Link.rsp", "quoting": "strong" },
@@ -17,8 +18,9 @@
         {
             "type": "shell",
             "label": "Compile Release",
-            "command": "emcc",
+            "command": ".vscode/emsdk_run.bat",
             "args": [
+                "emcc",
                 { "value": "@.vscode/Compile.rsp", "quoting": "strong" },
                 { "value": "@.vscode/Compile.Release.rsp", "quoting": "strong" },
                 { "value": "@.vscode/Link.rsp", "quoting": "strong" },
@@ -49,8 +51,9 @@
         {
             "type": "shell",
             "label": "Compress Output",
-            "command": "node",
+            "command": ".vscode/emsdk_run.bat",
             "args": [
+                "node",
                 ".vscode/Compress.mjs", "index.wasm"
             ],
             "group": "none"
@@ -58,8 +61,9 @@
         {
             "type": "shell",
             "label": "Run Local Server and Open Browser",
-            "command": "emrun",
+            "command": ".vscode/emsdk_run.bat",
             "args": [
+                "emrun",
                 "--hostname", "localhost",
                 "--port", "8080",
                 "index.html"
@@ -69,9 +73,10 @@
         {
             "type": "shell",
             "label": "Run Local Server",
-            "command": "emrun",
+            "command": ".vscode/emsdk_run.bat",
             "args": 
             [
+                "emrun",
                 "--hostname", "localhost",
                 "--port", "8080",
                 "--no_browser",
