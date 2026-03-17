@@ -13,7 +13,29 @@
                 { "value": "@.vscode/Compile.Debug.rsp", "quoting": "strong" },
                 { "value": "@.vscode/Link.rsp", "quoting": "strong" },
                 { "value": "@.vscode/Link.Debug.rsp", "quoting": "strong" }
-            ]
+            ],
+            "linux": {
+                "command": "bash",
+                "args": [
+                    ".vscode/emsdk_run.sh",
+                    "emcc",
+                    { "value": "@.vscode/Compile.rsp", "quoting": "strong" },
+                    { "value": "@.vscode/Compile.Debug.rsp", "quoting": "strong" },
+                    { "value": "@.vscode/Link.rsp", "quoting": "strong" },
+                    { "value": "@.vscode/Link.Debug.rsp", "quoting": "strong" }
+                ]
+            },
+            "osx": {
+                "command": "bash",
+                "args": [
+                    ".vscode/emsdk_run.sh",
+                    "emcc",
+                    { "value": "@.vscode/Compile.rsp", "quoting": "strong" },
+                    { "value": "@.vscode/Compile.Debug.rsp", "quoting": "strong" },
+                    { "value": "@.vscode/Link.rsp", "quoting": "strong" },
+                    { "value": "@.vscode/Link.Debug.rsp", "quoting": "strong" }
+                ]
+            }
         },
         {
             "type": "shell",
@@ -25,7 +47,29 @@
                 { "value": "@.vscode/Compile.Release.rsp", "quoting": "strong" },
                 { "value": "@.vscode/Link.rsp", "quoting": "strong" },
                 { "value": "@.vscode/Link.Release.rsp", "quoting": "strong" }
-            ]
+            ],
+            "linux": {
+                "command": "bash",
+                "args": [
+                    ".vscode/emsdk_run.sh",
+                    "emcc",
+                    { "value": "@.vscode/Compile.rsp", "quoting": "strong" },
+                    { "value": "@.vscode/Compile.Release.rsp", "quoting": "strong" },
+                    { "value": "@.vscode/Link.rsp", "quoting": "strong" },
+                    { "value": "@.vscode/Link.Release.rsp", "quoting": "strong" }
+                ]
+            },
+            "osx": {
+                "command": "bash",
+                "args": [
+                    ".vscode/emsdk_run.sh",
+                    "emcc",
+                    { "value": "@.vscode/Compile.rsp", "quoting": "strong" },
+                    { "value": "@.vscode/Compile.Release.rsp", "quoting": "strong" },
+                    { "value": "@.vscode/Link.rsp", "quoting": "strong" },
+                    { "value": "@.vscode/Link.Release.rsp", "quoting": "strong" }
+                ]
+            }
         },
         {
             "label": "Build Debug",
@@ -56,6 +100,24 @@
                 "node",
                 ".vscode/Compress.mjs", "index.wasm"
             ],
+            "linux": {
+                 "command": "bash",
+                 "args": [
+                    ".vscode/emsdk_run.sh",
+                    "node",
+                    ".vscode/Compress.mjs",
+                    "index.wasm"
+                    ]
+                },
+            "osx": {
+                "command": "bash",
+                "args": [
+                    ".vscode/emsdk_run.sh",
+                    "node",
+                    ".vscode/Compress.mjs",
+                    "index.wasm"
+                    ]
+                },
             "group": "none"
         },
         {
@@ -68,20 +130,69 @@
                 "--port", "8080",
                 "index.html"
             ],
+            "linux": { 
+                "command": "bash",
+                "args": [
+                    ".vscode/emsdk_run.sh",
+                    "emrun",
+                    "--hostname",
+                    "localhost",
+                    "--port",
+                    "8080",
+                    "index.html"
+                    ]
+                },
+            "osx": {
+                "command": "bash",
+                "args": [
+                    ".vscode/emsdk_run.sh",
+                    "emrun",
+                    "--hostname",
+                    "localhost",
+                    "--port",
+                    "8080",
+                    "index.html"
+                    ]
+                },
             "group": "none"
         },
         {
             "type": "shell",
             "label": "Run Local Server",
             "command": ".vscode/emsdk_run.bat",
-            "args": 
-            [
+            "args": [
                 "emrun",
                 "--hostname", "localhost",
                 "--port", "8080",
                 "--no_browser",
                 "index.html"
             ],
+            "linux": {
+                "command": "bash",
+                "args": [
+                    ".vscode/emsdk_run.sh",
+                    "emrun",
+                    "--hostname",
+                    "localhost",
+                    "--port",
+                    "8080",
+                    "--no_browser",
+                    "index.html"
+                    ]
+                },
+            "osx": {
+                "command": "bash",
+                "args": [
+                    ".vscode/emsdk_run.sh",
+                    "emrun",
+                    "--hostname",
+                    "localhost",
+                    "--port",
+                    "8080",
+                    "--no_browser",
+                    "index.html"
+                    ]
+                },
             "isBackground": true,
             "problemMatcher": [
                 {
