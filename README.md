@@ -55,4 +55,5 @@ Visual Studio Code の設定を済ませたパッケージです.
 - - -
 
 OpenSiv3D For Web  Copyright (C) 2021 かめのこにょこにょこ
+
 Modified by (C) 2026 タケノコ
